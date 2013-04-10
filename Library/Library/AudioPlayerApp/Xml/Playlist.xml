@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tracks Source="Eminem1.mp3">
+    <Artist>Eminem</Artist>
+    <Title>Sing For The Moment</Title>
+    <Album>The Eminem Show</Album>
+    <Tile>/Images/eminem.jpg</Tile>
+  </Tracks>
+  <Tracks Source="Eminem2.mp3">
+    <Artist>Eminem</Artist>
+    <Title>'Till I Collapse</Title>
+    <Album>The Eminem Show</Album>
+    <Tile>/Images/eminem.jpg</Tile>
+  </Tracks>
+  <Tracks Source="JoanJett.mp3">
+    <Artist>Joan Jett</Artist>
+    <Title>I love Rock'n Roll</Title>
+    <Album>I love Rock'n Roll</Album>
+    <Tile>/Images/blackhearths.jpg</Tile>
+  </Tracks>
+  <Tracks Source="TheScript.mp3">
+    <Artist>The Script</Artist>
+    <Title>Science and Faith</Title>
+    <Album>Science and Faith</Album>
+    <Tile>/Images/script.png</Tile>
+  </Tracks>
+  <Name>Top4Songs</Name>
+</Playlist>

@@ -1,0 +1,119 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="AudioPlayerApp.MainPage"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="{StaticResource AppName}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="playlist" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" 
+              Grid.Row="1" 
+              Margin="12,0" 
+              HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="432*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding ActivePlaylist.Name}" 
+                       FontSize="{StaticResource PhoneFontSizeExtraLarge}" Margin="-3,-20,3,490" Grid.RowSpan="2" />
+        </Grid>
+        <ListBox ItemsSource="{Binding ActivePlaylist.Tracks}" Grid.Row="1" x:Name="lstTracks" HorizontalContentAlignment="Stretch" Margin="66,51,18,89" Loaded="lstTracks_Loaded">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="10,0" Source="{Binding Tile, TargetNullValue={StaticResource NoArt}}" Grid.RowSpan="3" Width="60" Stretch="Uniform" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Title}" Grid.Column="1" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                        <TextBlock Text="{Binding Artist}" Grid.Row="1" Grid.Column="1" />
+                        <TextBlock Text="{Binding Album}" Grid.Row="2" Grid.Column="1" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Grid.Row="1" 
+              Height="83" 
+              HorizontalAlignment="Left" 
+              Margin="12,452,0,0" 
+              Name="ControlGrid" 
+              VerticalAlignment="Top" 
+              Width="450">
+            <Grid.ColumnDefinitions>
+               
+                <ColumnDefinition Width="*" />
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <Slider Height="82" 
+                    HorizontalAlignment="Left" Name="SongSlider" 
+                    VerticalAlignment="Top" 
+                    Width="456" 
+                    ManipulationCompleted="SongSlider_Manipuation" 
+                    VerticalContentAlignment="Stretch" />
+            <TextBlock Height="34" 
+                       HorizontalAlignment="Left" 
+                       Margin="6,35,0,0" 
+                       Name="StartTextBlock" 
+                       Text="00:00:00" 
+                       VerticalAlignment="Top" 
+                       Width="82" />
+            <TextBlock Height="32" 
+                       HorizontalAlignment="Left" 
+                       Margin="371,35,0,0" 
+                       Name="EndTextBlock" 
+                       Text="00:00:00" 
+                       VerticalAlignment="Top" 
+                       Width="82" />
+        </Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/AudioPlayerApp;component/Images/Background.jpg" />
+        </Grid.Background>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton IconUri="/Images/previous.png" Text="previous" Click="appbar_previous"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/play.png" Text="play" Click="appbar_playpause"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/stop.png" Text="stop" Click="appbar_stop"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/next.png" Text="next" Click="appbar_next"/>
+           <!-- <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems> -->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
