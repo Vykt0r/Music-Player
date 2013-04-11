@@ -1,4 +1,4 @@
-    Tools used for the development:
+       Tools used for the development:
 - Visual Studio 2010 Express for Windows Phone
 - SDK 7.1 Development Tools
 
@@ -26,7 +26,5 @@
    
 
   The AudioPlayerApp is the core of the Application. Here we have the XML file, the Music and Images folders which contain the tracks and the corresponding album images, and of course the MainPage.xaml which is responsible for the UI and the MainPage.cs which defines the application’s business logic
-  
   The Library is a project with two classes in which are defined the xml Atributes from the XML file in AudioPlayerApp as properties in  order to make them usable throughout the application
-  
   The PlayBackAgent is a special type of class which allows music to be played in the background.
