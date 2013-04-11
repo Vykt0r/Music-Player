@@ -1,4 +1,4 @@
-       Tools used for the development:
+    Tools used for the development:
 - Visual Studio 2010 Express for Windows Phone
 - SDK 7.1 Development Tools
 
@@ -8,15 +8,20 @@
 - Visual C#
 
     Main Features:
-- The Application makes use of  the Audio Playback Agent which was added with the 7.1 OS. This is basically a class which enables the application to keep playing tracks even if the user exits the application
+- The Application makes use of  the Audio Playback Agent which was added with the 7.1 OS. This is basically a class 
+which enables the application to keep playing tracks even if the user exits the application
 - The UI is user friendly and contains a slider user control which shows the track’s progress
-- The buttons which control the data stream are on the Phone Application bar (play/pause,stop,next track and previous track)
+- The buttons which control the data stream are on the Phone Application bar (play/pause,stop,next track and previous 
+track)
 - The Application works both in Portrait and Landscape Mode
 
     Disadvantages:
-- The Audio Playback Agent is great however once the user leaves even if the music plays in the background, the agent “doesen’t”  know that the music is still playing as a result once the user reenters the application an asynchronous issue might show up: even if the tracks are playing the  play button is on “pause status”.
+- The Audio Playback Agent is great however once the user leaves even if the music plays in the background, the agent 
+“doesen’t”  know that the music is still playing as a result once the user reenters the application an asynchronous 
+issue might show up: even if the tracks are playing the  play button is on “pause status”.
 - Resizing is quite troublesome because in landscape view the slide bar “vanishes”.
-- The Playlist is predetermined: the application uses an xml file and not a database which means the user can’t perform any kind of operation that has a direct impact on the playlist.
+- The Playlist is predetermined: the application uses an xml file and not a database which means the user can’t perform 
+any kind of operation that has a direct impact on the playlist.
 
      The Project structure in the Solution explorer
      There are 3 projects in the Solution Explorer:
@@ -25,6 +30,9 @@
 3. PlaybackAgent
    
 
-  The AudioPlayerApp is the core of the Application. Here we have the XML file, the Music and Images folders which contain the tracks and the corresponding album images, and of course the MainPage.xaml which is responsible for the UI and the MainPage.cs which defines the application’s business logic
-  The Library is a project with two classes in which are defined the xml Atributes from the XML file in AudioPlayerApp as properties in  order to make them usable throughout the application
+  The AudioPlayerApp is the core of the Application. Here we have the XML file, the Music and Images folders which 
+contain the tracks and the corresponding album images, and of course the MainPage.xaml which is responsible for the UI 
+and the MainPage.cs which defines the application’s business logic
+  The Library is a project with two classes in which are defined the xml Atributes from the XML file in AudioPlayerApp 
+as properties in  order to make them usable throughout the application
   The PlayBackAgent is a special type of class which allows music to be played in the background.
